@@ -5,11 +5,12 @@ All the included scripts are largely based on the [RETURNN](https://github.com/r
 ### Installation
 Installation process includes data download & preparation.
 
-Basically follow the [installation guide](https://github.com/rwth-i6/returnn-experiments/tree/master/2018-asr-attention/librispeech/full-setup-attention) of original setup by Albert Zeyer,
-with a little modification in the scripts. 
-##  
-
-## 
+Basically follow the same process as [installation guide](https://github.com/rwth-i6/returnn-experiments/tree/master/2018-asr-attention/librispeech/full-setup-attention) of original setup by Albert Zeyer,
+only with a little modification as follows. 
+## Modification in RETURNN scripts
+In ./returnn/ directory, 
+Install requirements 
+# Step 2:
 
 ### Training
 '''
