@@ -9817,6 +9817,7 @@ def _init_layer_class_dict():
   import TFNetworkLayerMine  #ADDED
 
   auto_register_layer_classes(list(globals().values()))
+#  for mod in [TFNetworkRecLayer, TFNetworkSigProcLayer, TFNetworkSegModLayer, TFNetworkNeuralTransducer]: 
   for mod in [TFNetworkRecLayer, TFNetworkSigProcLayer, TFNetworkSegModLayer, TFNetworkNeuralTransducer, TFNetworkLayerMine]: 
     auto_register_layer_classes(list(vars(mod).values()))
 

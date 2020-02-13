@@ -1,0 +1,14 @@
+You may want to use up-to-date scripts of RETURNN toolkit, rather than the RETURNN originally included in this repository.
+
+In this case, follow these steps:
+
+(1) Install returnn toolkit by un-captioning & re-executing the script {root_dir}/03_git_clone_returnn.sh 
+
+   # If successfully installed, the directory will be {root_dir}/returnn
+
+(2) Copy {root_dir}/returnn_modification/TFNetworkLayerMine.py into the directory {root_dir}/returnn/
+
+(3) Modify {root_dir}/returnn/TFNetworkLayer.py script to properly import the script TFNetworkLayerMine.py 
+
+   # Refer to the 9817-th and the 9821-th line in TFNetworkLayer.py script)
+   # Just import TFNetworkLyaerMine.py in the same way as these lines.
