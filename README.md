@@ -1,4 +1,4 @@
-This repository contains the original code of Gated Recurrent Context (paper links:[arXiv](https://arxiv.org/pdf/2007.05214.pdf), [IEEE Transactions on ASLP](https://ieeexplore.ieee.org/document/9314198))().
+This repository contains the original code of Gated Recurrent Context (paper links: [arXiv](https://arxiv.org/pdf/2007.05214.pdf), [IEEE Transactions on ASLP](https://ieeexplore.ieee.org/document/9314198)).
 
 This repository includes a pipeline scripts for training & inference of AED (Attention-based Encoder-Decoder) models for speech recognition task on [LibriSpeech](http://www.openslr.org/12/) dataset.
 
