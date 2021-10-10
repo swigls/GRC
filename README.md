@@ -1,3 +1,5 @@
+This repository contains the original code of Gated Recurrent Context (paper links:[IEEE](https://ieeexplore.ieee.org/document/9314198), [arXiv](https://arxiv.org/pdf/2007.05214.pdf))().
+
 This repository includes a pipeline scripts for training & inference of AED (Attention-based Encoder-Decoder) models for speech recognition task on [LibriSpeech](http://www.openslr.org/12/) dataset.
 
 All the included scripts are largely based on the [RETURNN](https://github.com/rwth-i6/returnn) toolkit.
