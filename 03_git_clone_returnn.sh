@@ -6,6 +6,6 @@
 ###
 ### If you want to use the up-to-date version, un-caption the line below, and then execute this script again. 
 
-#git clone https://github.com/rwth-i6/returnn.git
+git clone https://github.com/rwth-i6/returnn.git
 
 ### After the cloning, follow the instruction at returnn_modification/README

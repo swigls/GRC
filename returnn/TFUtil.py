@@ -3508,7 +3508,8 @@ def get_available_gpu_devices():
 
   :rtype: list[tensorflow.core.framework.device_attributes_pb2.DeviceAttributes|_DeviceAttributes]
   """
-  return [x for x in get_tf_list_local_devices() if x.device_type == 'GPU']
+  #print(get_tf_list_local_devices())
+  return [x for x in get_tf_list_local_devices() if x.device_type == 'XLA_GPU']
 
 
 def get_available_gpu_min_compute_capability():
@@ -4856,7 +4857,7 @@ class OpCodeCompiler(NativeCodeCompiler):
     self._nvcc_opts = []
     if self._with_cuda() and cuda_auto_min_compute_capability:
       # Get CUDA compute capability of the current GPU device.
-      min_compute_capability = get_available_gpu_min_compute_capability()
+      min_compute_capability = 5.0 #get_available_gpu_min_compute_capability()
       if min_compute_capability:
         self._nvcc_opts += ["-arch", "compute_%i" % int(min_compute_capability * 10)]
     tf_include = tf.sysconfig.get_include()  # e.g. "...python2.7/site-packages/tensorflow/include"

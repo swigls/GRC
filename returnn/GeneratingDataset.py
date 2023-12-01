@@ -1179,7 +1179,7 @@ def _get_audio_features_mfcc(audio, sample_rate, window_len=0.025, step_len=0.01
     audio, sr=sample_rate,
     n_mfcc=num_feature_filters,
     hop_length=int(step_len * sample_rate), n_fft=int(window_len * sample_rate))
-  energy = librosa.feature.rmse(
+  energy = librosa.feature.rms(
     audio,
     hop_length=int(step_len * sample_rate), frame_length=int(window_len * sample_rate))
   mfccs[0] = energy  # replace first MFCC with energy, per convention

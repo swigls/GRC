@@ -1,0 +1,7 @@
+venv
+conda
+activate_python.sh
+miniconda.sh
+data
+**.swp
+**__pycache__**

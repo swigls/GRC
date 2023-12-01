@@ -1,5 +1,8 @@
 better_exchook
 numpy
 h5py
-tensorflow-gpu
+tensorflow-gpu==1.14
 theano==0.9
+pysoundfile
+librosa==0.8.0
+protobuf==3.20
