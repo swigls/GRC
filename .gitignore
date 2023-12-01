@@ -1,5 +1,4 @@
 venv
-conda
 activate_python.sh
 miniconda.sh
 data
