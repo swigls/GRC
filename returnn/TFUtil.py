@@ -3519,7 +3519,9 @@ def get_available_gpu_min_compute_capability():
   :return: e.g. 3.0, or 5.0, etc, or None
   :rtype: float|None
   """
+  return 8.6  # for 3090
   cap = None
+  #assert False, get_available_gpu_devices()
   for dev in get_available_gpu_devices():
     assert dev.physical_device_desc is not None
     desc = _parse_physical_device_desc(dev.physical_device_desc)

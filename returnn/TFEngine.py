@@ -546,7 +546,7 @@ class Runner(object):
         if step == 0:
           if self.engine.config.bool("check_unsupported_device", False) and self.engine.is_requesting_for_gpu():
             from TFUtil import find_unsupported_devices_in_graph
-            ops = find_unsupported_devices_in_graph(graph=sess.graph, dev_name="GPU")
+            ops = find_unsupported_devices_in_graph(graph=sess.graph, dev_name="XLA_GPU")
             if not ops:
               print("All ops in graph can be run on GPU.")
             else:
