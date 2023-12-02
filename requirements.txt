@@ -5,4 +5,4 @@ tensorflow-gpu==1.15
 theano==0.9
 pysoundfile
 librosa==0.8.0
-protobuf==3.20
+protobuf==3.19
