@@ -6,8 +6,12 @@ FROM tensorflow/tensorflow:1.15.5-gpu-py3
 # install normal source
 # ARG DEBIAN_FRONTEND=noninteractive
 RUN rm /etc/apt/sources.list.d/*
-RUN apt-get update 
-RUN apt-get install -y git
+RUN apt-get -y update 
+RUN apt-get install -y \
+    git \
+    wget \
+    dpkg \
+    libsndfile1
 # RUN apt-get update && \
     # apt-get install -y --no-install-recommends \
     #     g++ \

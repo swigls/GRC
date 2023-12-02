@@ -5,6 +5,7 @@ docker run \
   --gpus all \
   --rm \
   -it \
+  --user $UID \
   -e HOME \
   -v $HOME:$HOME \
   --ipc=host \
@@ -13,4 +14,3 @@ docker run \
   #/bin/bash
 #  --expose 6006 \
 # --runtime=nvidia \
-#  --user $UID \

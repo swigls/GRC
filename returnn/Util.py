@@ -2506,7 +2506,7 @@ def get_login_username():
   if sys.platform == 'win32':
     return os.getlogin()
   import pwd
-  return pwd.getpwuid(os.getuid())[0]
+  return 'hslee' #pwd.getpwuid(os.getuid())[0]
 
 
 def get_temp_dir():

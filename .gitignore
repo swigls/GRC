@@ -3,4 +3,5 @@ activate_python.sh
 miniconda.sh
 data
 **.swp
+**.pyc
 **__pycache__**
