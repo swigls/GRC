@@ -4,7 +4,7 @@ h5py
 typing
 dm_tree
 tensorflow
-horovod[tensorflow]
+#horovod[tensorflow]
 pysoundfile
 librosa
 protobuf
