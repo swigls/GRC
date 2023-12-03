@@ -11,7 +11,30 @@ RETURNN - RWTH extensible training framework for universal recurrent neural netw
 is a Theano/TensorFlow-based implementation of modern recurrent neural network architectures.
 It is optimized for fast and reliable training of recurrent neural networks in a multi-GPU environment.
 
-Features include:
+The high-level features and goals of RETURNN are:
+
+* **Simplicity**
+
+  * Writing config / code is simple & straight-forward (setting up experiment, defining model)
+  * Debugging in case of problems is simple
+  * Reading config / code is simple (defined model, training, decoding all becomes clear)
+
+* **Flexibility**
+
+  * Allow for many different kinds of experiments / models
+
+* **Efficiency**
+
+  * Training speed
+  * Decoding speed
+
+All items are important for research, decoding speed is esp. important for production.
+
+See our `Interspeech 2020 tutorial "Efficient and Flexible Implementation of Machine Learning for ASR and MT" video <https://www.youtube.com/watch?v=wPKdYqSOlAY>`__
+(`slides <https://www-i6.informatik.rwth-aachen.de/publications/download/1154/Zeyer--2020.pdf>`__)
+with an introduction of the core concepts.
+
+More specific features include:
 
 - Mini-batch training of feed-forward neural networks
 - Sequence-chunking based batch training for recurrent neural networks
@@ -49,33 +72,74 @@ Questions can also be asked on
 Some recent development changelog can be seen `here <https://github.com/rwth-i6/returnn/blob/master/CHANGELOG.md>`__.
 
 
-User guide
-----------
+.. Getting Started
+.. ---------------
 
 .. toctree::
+    :hidden:
+    :caption: Getting Started
     :maxdepth: 2
 
-    installation
-    basic_usage
-    tech_overview
-    tf_lstm_benchmark
-    multi_gpu
-    deterministic_training
-    debugging
-    profiling
+    getting_started/installation.rst
+    getting_started/basic_usage.rst
+    getting_started/returnn_frontend.rst
+    getting_started/tech_overview.rst
+    getting_started/data.rst
+    getting_started/recurrency.rst
+    getting_started/training.rst
+    getting_started/native_ops.rst
+    getting_started/framework.rst
+    getting_started/recent_development.rst
+    getting_started/tf_lstm_benchmark.rst
+    getting_started/faq.rst
+
+.. toctree::
+    :hidden:
+    :caption: User Guide
+    :maxdepth: 2
+
+    user_guide/network.rst
+    user_guide/dataset.rst
+    user_guide/recurrent_subnet.rst
+    user_guide/extending_returnn.rst
+
+
+.. toctree::
+    :hidden:
+    :caption: Reference
+    :maxdepth: 2
+
     configuration_reference/index.rst
     dataset_reference/index.rst
     layer_reference/index.rst
-
-
-API Reference
--------------
+    optimizer.rst
 
 .. toctree::
+    :hidden:
+    :caption: Advanced Topics
     :maxdepth: 2
-    :glob:
 
-    api
+    advanced/pretraining.rst
+    advanced/multi_gpu.rst
+    advanced/debugging.rst
+    advanced/profiling.rst
+    advanced/deterministic_training.rst
+    advanced/test_suite.rst
+
+.. toctree::
+    :hidden:
+    :caption: Applications
+
+    applications/asr.rst
+    applications/lm.rst
+    applications/mt.rst
+
+.. toctree::
+    :hidden:
+    :caption: Internals
+
+    api.rst
+    internals/search.rst
 
 
 Refs

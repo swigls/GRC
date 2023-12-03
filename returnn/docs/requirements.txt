@@ -3,8 +3,13 @@ scipy
 h5py
 theano==0.9
 nose
-tensorflow==1.15.0
+pytest
+dm-tree
+tensorflow==2.11.1
+torch
+torchdata
+torchaudio
 numpydoc
-tornado
-futures
 better_exchook
+sphinx
+furo

@@ -109,10 +109,11 @@ Contains code from TensorFlow:
  - Apache License 2.0
  - Copyright 2017 The TensorFlow Authors. All rights reserved.
  - Various functions in TFUtil.py, TFUpdater.py.
+ - graph_editor from contrib.
 
 Contains code from pumpikano-tf-dann:
  - Website: https://github.com/pumpikano/tf-dann
- - No project license
+ - MIT License
  - Copyright Clayton Mellina
  - Function FlipGradientBuilder in TFUtil.py.
 
@@ -132,7 +133,7 @@ Contains code from tensor2tensor:
  - Website: https://github.com/tensorflow/tensor2tensor
  - Apache License, Version 2.0
  - Copyright 2017 The Tensor2Tensor Authors
- - Some code in TFUtil.py, Util.py.
+ - Some code in TFUtil.py, Util.py. Also avg_checkpoints.py.
 
 Contains code from keithito-tacotron:
  - Website: https://github.com/keithito/tacotron
@@ -140,10 +141,39 @@ Contains code from keithito-tacotron:
  - Copyright (c) 2017 Keith Ito
  - Some code in LmDataset.py.
 
-Contains code from Tacotron-2
+Contains code from Tacotron-2:
  - Website: https://github.com/Rayhane-mamah/Tacotron-2
  - MIT License (MIT)
  - Copyright (c) 2018 Rayhane Mama
  - ZoneoutLSTMCell in TFNetworkRecLayer.py
+
+Contains code from literal-python-to-pickle:
+ - Website: https://github.com/albertz/literal-python-to-pickle
+ - MIT License (MIT)
+ - Copyright (c) 2021 Albert Zeyer
+ - literal_py_to_pickle.py, py-to-pickle.cpp
+
+Contains code from albertz-native-signal-handler:
+ - Website: https://github.com/albertz/playground/blob/master/signal_handler.c
+ - MIT License (MIT)
+ - Copyright (c) 2023 Albert Zeyer
+
+Contains code from Ruby:
+ - https://www.ruby-lang.org/
+ - BSD 2-clause "Simplified" License
+ - Copyright 1995..2023 Yukihiro Matsumoto
+ - Various code snippets
+
+Contains code from CPython:
+ - https://www.python.org/
+ - Python Software Foundation License (PSF)
+ - Copyright 2001..2021 Python Software Foundation
+ - py-to-pickle.cpp
+
+Contains code from PyTorch:
+ - https://github.com/pytorch/pytorch/
+ - BSD 3-Clause License
+ - Copyright 2016..2023 various developers
+ - Various code snippets
 
 Various code snippets from StackOverflow, which are under Creative Commons / Public Domain.

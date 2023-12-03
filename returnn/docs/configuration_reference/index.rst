@@ -1,8 +1,8 @@
 .. _configuration_reference:
 
-=======================
-Configuration Reference
-=======================
+========================
+Configuration Parameters
+========================
 
 .. warning::
     The configuration reference is currently under construction and incomplete,
@@ -12,6 +12,7 @@ Configuration Reference
     :maxdepth: 1
     :titlesonly:
 
+    behavior_version.rst
     general_settings.rst
     training.rst
     optimizer_settings.rst

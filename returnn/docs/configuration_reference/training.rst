@@ -4,6 +4,8 @@
 Training
 ========
 
+See also :ref:`training` for an overview of the relevant aspects.
+
 batch_size
     An integer defining the batch size in data items (frames, words, subwords, etc.) per batch.
     A mini-batch has at least a time-dimension and a batch-dimension (or sequence-dimension),
@@ -11,6 +13,23 @@ batch_size
     ``batch_size`` is the upper limit for ``time * sequences`` during creation of the mini-batches.
 
 batching
+    Defines the default value for ``seq_ordering`` across all datasets.
+    It is recommended to not use this parameter,
+    but rather define ``seq_ordering`` explicitly in the datasets for better readability.
+    Possible values are:
+
+    - ``default``: Keep the sequences as is
+    - ``reverse``: Use the default sequences in reversed order
+    - ``random``: Shuffle the data with a predefined fixed seed
+    - ``random:<seed>``: Shuffle the data with the seed given
+    - ``sorted``: Sort by length (only if available), beginning with shortest sequences
+    - ``sorted_reverse``: Sort by length, beginning with longest sequences
+    - ``laplace:<n_buckets>``: Sort by length with n laplacian buckets
+      (one bucket means going from shortest to longest and back with 1/n of the data).
+    - ``laplace:.<n_sequences>``: sort by length with n sequences per laplacian bucket.
+
+    Note that not all sequence order modes are available for all datasets,
+    and some datasets may provide additional modes.
 
 chunking
     You can chunk sequences of your data into parts, which will greatly reduce the amount of needed zero-padding.
@@ -25,14 +44,15 @@ cleanup_old_models
     Per default, 2 recent, 4 best, and the checkpoints 20,40,80,160,240 are kept.
     Can be set as a dictionary to specify additional options.
 
-        - ``keep_last_n``: integer defining how many recent checkpoints to keep
-        - ``keep_best_n``: integer defining how many best checkpoints to keep
-        - ``keep``: list or set of integers defining which checkpoints to keep
+    - ``keep_last_n``: integer defining how many recent checkpoints to keep
+    - ``keep_best_n``: integer defining how many best checkpoints to keep
+    - ``keep``: list or set of integers defining which checkpoints to keep
 
 max_seq_length
     A dict with string:integer pairs. The string must be a valid data key,
-    and the integer specifies the upper bound for this data object. Batches, where the specified data object exceeds
-    the upper bound are discarded. Note that some datasets (e.g ``OggZipDataset``) load and process the data
+    and the integer specifies the upper bound for this data object.
+    During batch construction any sequence where the specified data object exceeds the upper bound are discarded.
+    Note that some datasets (e.g ``OggZipDataset``) load and process the data
     to determine the length, so even for discarded sequences data processing might be performed.
 
 max_seqs
@@ -48,13 +68,4 @@ start_epoch
     An integer or string specifying the epoch to start the training at. The default is 'auto'.
 
 stop_on_nonfinite_train_score
-    If set to ``False``, the training will not be interupted if a single update step has a loss with NaN of Inf
-
-
-
-
-
-
-
-
-
+    If set to ``False``, the training will not be interrupted if a single update step has a loss with NaN of Inf

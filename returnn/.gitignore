@@ -1,0 +1,32 @@
+*.pyc
+__pycache__
+.history*
+/.idea
+ipython-kernel-*.json
+.*.swp
+.nfs*
+*~
+*.so
+/.vscode
+
+# QtCreator/cmake creates this:
+/extern/build-*
+
+# When we run tests here, these can be created.
+/events.out.tfevents.*
+
+# When we run tests/pycharm-inspect.py, this will be created.
+/tests/PyCharm.idea/workspace.xml
+
+# via setuptools (setup.py)
+/MANIFEST
+/build
+/dist
+/_setup_info_generated.py
+/returnn.egg-info
+
+# via test cases run directly in this directory, or maybe in the tests dir
+dataset_id*
+
+# via GitHub codespaces
+/pythonenv*

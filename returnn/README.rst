@@ -10,7 +10,30 @@ RETURNN - RWTH extensible training framework for universal recurrent neural netw
 is a Theano/TensorFlow-based implementation of modern recurrent neural network architectures.
 It is optimized for fast and reliable training of recurrent neural networks in a multi-GPU environment.
 
-Features include:
+The high-level features and goals of RETURNN are:
+
+* **Simplicity**
+
+  * Writing config / code is simple & straight-forward (setting up experiment, defining model)
+  * Debugging in case of problems is simple
+  * Reading config / code is simple (defined model, training, decoding all becomes clear)
+
+* **Flexibility**
+
+  * Allow for many different kinds of experiments / models
+
+* **Efficiency**
+
+  * Training speed
+  * Decoding speed
+
+All items are important for research, decoding speed is esp. important for production.
+
+See our `Interspeech 2020 tutorial "Efficient and Flexible Implementation of Machine Learning for ASR and MT" video <https://www.youtube.com/watch?v=wPKdYqSOlAY>`__
+(`slides <https://www-i6.informatik.rwth-aachen.de/publications/download/1154/Zeyer--2020.pdf>`__)
+with an introduction of the core concepts.
+
+More specific features include:
 
 - Mini-batch training of feed-forward neural networks
 - Sequence-chunking based batch training for recurrent neural networks
@@ -21,7 +44,7 @@ Features include:
 - Work distribution across multiple devices
 - Flexible and fast architecture which allows all kinds of encoder-attention-decoder models
 
-See `documentation <http://returnn.readthedocs.io/>`__.
+See `documentation <https://returnn.readthedocs.io/>`__.
 See `basic usage <https://returnn.readthedocs.io/en/latest/basic_usage.html>`__
 and `technological overview <https://returnn.readthedocs.io/en/latest/tech_overview.html>`__.
 
@@ -47,5 +70,5 @@ There is also `a wiki <https://github.com/rwth-i6/returnn/wiki>`_.
 Questions can also be asked on
 `StackOverflow using the RETURNN tag <https://stackoverflow.com/questions/tagged/returnn>`_.
 
-.. image:: https://travis-ci.org/rwth-i6/returnn.svg?branch=master
-    :target: https://travis-ci.org/rwth-i6/returnn
+.. image:: https://github.com/rwth-i6/returnn/workflows/CI/badge.svg
+    :target: https://github.com/rwth-i6/returnn/actions

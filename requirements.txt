@@ -1,9 +1,10 @@
 better_exchook
 numpy
 h5py
-tensorflow-gpu==1.15
-horovod[tensorflow]
-theano==0.9
+typing
+dm_tree
+tensorflow
+#horovod[tensorflow]
 pysoundfile
-librosa==0.8.0
-protobuf==3.19
+librosa
+protobuf

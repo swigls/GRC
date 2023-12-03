@@ -4,55 +4,84 @@
 Recurrent Layers
 ================
 
+Choice Layer
+------------
 
-Recurrent Layer
----------------
+.. autoclass:: returnn.tf.layers.rec.ChoiceLayer
+    :members:
+    :undoc-members:
 
-.. autoclass:: TFNetworkRecLayer.RecLayer
-	:members:
-	:undoc-members:
+Choice Get Beam Scores Layer
+----------------------------
 
-RNN Cell Layer
---------------
+.. autoclass:: returnn.tf.layers.rec.ChoiceGetBeamScoresLayer
+    :members:
+    :undoc-members:
 
-.. autoclass:: TFNetworkRecLayer.RnnCellLayer
-	:members:
-	:undoc-members:
+Decide Layer
+------------
 
-Get Last Hidden State Layer
----------------------------
-
-.. autoclass:: TFNetworkRecLayer.GetLastHiddenStateLayer
-	:members:
-	:undoc-members:
+.. autoclass:: returnn.tf.layers.rec.DecideLayer
+    :members:
+    :undoc-members:
 
 Get Accumulated Output Layer
 ----------------------------
 
-.. autoclass:: TFNetworkRecLayer.GetRecAccumulatedOutputLayer
-	:members:
-	:undoc-members:
+.. autoclass:: returnn.tf.layers.rec.GetRecAccumulatedOutputLayer
+    :members:
+    :undoc-members:
 
-Positional Encoding Layer
--------------------------
+Get Last Hidden State Layer
+---------------------------
 
-.. autoclass:: TFNetworkRecLayer.PositionalEncodingLayer
-	:members:
-	:undoc-members:
+.. autoclass:: returnn.tf.layers.rec.GetLastHiddenStateLayer
+    :members:
+    :undoc-members:
 
-Choice Layer
-------------
+Masked Computation Layer
+------------------------
 
-.. autoclass:: TFNetworkRecLayer.ChoiceLayer
-	:members:
-	:undoc-members:
+.. autoclass:: returnn.tf.layers.rec.MaskedComputationLayer
+    :members:
+    :undoc-members:
 
-Decision Layer
+Unmasking Layer
+---------------
+
+.. autoclass:: returnn.tf.layers.rec.UnmaskLayer
+    :members:
+    :undoc-members:
+
+Recurrent Layer
+---------------
+
+.. autoclass:: returnn.tf.layers.rec.RecLayer
+    :members:
+    :undoc-members:
+
+RNN Cell Layer
 --------------
 
-.. autoclass:: TFNetworkRecLayer.DecideLayer
-	:members:
-	:undoc-members:
+.. autoclass:: returnn.tf.layers.rec.RnnCellLayer
+    :members:
+    :undoc-members:
+
+Self-Attention Layer
+--------------------
+
+.. autoclass:: returnn.tf.layers.rec.SelfAttentionLayer
+    :members:
+    :undoc-members:
+
+
+
+
+
+
+
+
+
 
 
 

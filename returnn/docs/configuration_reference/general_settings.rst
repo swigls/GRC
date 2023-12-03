@@ -8,27 +8,36 @@ dev
     A dictionary specifying the developement set. For details on datasets, see :ref:`dataset_reference`
 
 device
-    E.g. ``gpu`` or ``cpu``. Can also be ``gpu0,gpu1`` for multi-GPU training.
+    E.g. ``gpu`` or ``cpu``.
+    Although RETURNN will automatically detect and use a GPU if available,
+    a specific device can be enforced by setting this parameter.
 
 extern_data (former num_outputs)
-    Defines the source/target dimensions of the data. Both can be integers.
-    extern_data can also be a dict if your dataset has other data streams.
-    The standard source data is called "``data``" by default,
-    and the standard target data is called "``classes``" by default.
-    You can also specify whether your data is dense or sparse (i.e. it is just the index),
-    which is specified by the number of dimensions, i.e. 2 (time-dim + feature-dim) or 1 (just time-dim).
-    When using no explicit definition, it is assumed that the data contains a time axis.
+    Defines the source/target dimensions of the data as a dictionary of dictionaries describing data streams.
+    The standard source data is called ``data`` by default,
+    and the standard target data is called ``classes`` by default.
 
-    Example: :code:`extern_data = {"data": [100, 2], "classes": [5000, 1]}`.
-    This defines an input dimension of 100, and the input is dense (2),
-    and an output dimension of 5000, and the output provided by the dataset is sparse (1).
+    A common example for an ASR system would be:
 
-    For a more explicit definition of the shapes, you can provide a dict instead of a list or tuple. This dict may
-    contain information to create "Data" objects. For extern_data, only ``dim`` and ``shape`` are required.
-    Example: :code:`'speaker_classes': {'dim': 1172, 'shape': (), 'sparse': True}`
-    This defines a sparse input for e.g. speaker classes that do not have a time axis.
+    .. code-block:: python
 
-    In general, all input parameters to :class:`TFUtil.Data` can be provided
+        extern_data = {
+          "data": {"dim": 100, "shape": (None, 100), 'available_for_inference': True}
+          "classes": {"dim": 5000, "shape": (None,), "sparse": True, 'available_for_inference': False}
+        }
+
+    In this case the ``data`` entry defines 80 dimensional features with a time axis of arbitrary length.
+    ``classes`` defines sparse target labels, and the dimension then defines the number of labels.
+    The shape entries ``None`` indicate a dynamic length of an axis.
+    ``available_for_inference`` defines if the data stream is also available during the "search" or "forward" task,
+    so basically marking if a data stream is an input or only a target.
+
+    In general, all input parameters to :class:`returnn.tensor.Tensor` can be provided
+    The parameters ``dim`` and ``shape`` should always be used, the other parameters are optional.
+    Nevertheless ``available_for_inference`` should always be provided explicitely as
+    only for ``data`` the parameter ``available_for_inference`` is per default `True`.
+    This will avoid confusion or unexpected behavior, especially when including additional data
+    via a :class:`returnn.datasets.meta.MetaDataset`.
 
 log
     path to the log, or list of paths for multiple logs.
@@ -46,7 +55,11 @@ model
     If ``load_from`` is not set, the model will also be loaded from this path.
 
 network
-    This is a nested dict which defines the network topology.
+    This is a nested dict which defines the network topology,
+    used for the TensorFlow layers backend.
+    See also :ref:`returnn_frontend` as an alternative.
+    Or you can also write pure PyTorch code.
+
     It consists of layer-names as strings, mapped on dicts, which defines the layers.
     The layer dict consists of keys as strings and the value type depends on the key.
     The layer dict should contain the key ``class`` which defines the class or type of the layer,
@@ -57,9 +70,16 @@ network
     For details sett :ref:`layer_reference`.
 
 num_inputs
+    Input feature dimension of the network, related to the 'data' tag.
+    Deprecated for the TensorFlow backend, see ``extern_data``
 
 num_outputs
-    Deprecated, see ``extern_data``
+    Output feature dimension of the network, related to the 'classes' tag.
+    Deprecated for the TensorFlow backend, see ``extern_data``
+
+target
+    This defines the default target for :class:`returnn.tf.network.ExternData`.
+    If not specified, the default target will be ``classes``.
 
 task
     The task to run. Common cases are ``train``, ``forward`` or ``search``.
@@ -69,6 +89,7 @@ tf_log_memory_usage
 
 tf_log_dir
     Defines the folder where the tensorflow/tensorboard logs are writting. Per default, the logs are written next to the models.
+
     .. note::
         has to be set specifically when loading a model from a folder without write permission
 
