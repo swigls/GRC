@@ -13,7 +13,7 @@ assert os.path.exists(returnn_dir)
 sys.path.append(returnn_dir)
 log = sys.stderr
 
-from Config import Config
+from returnn.config import Config
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument("--experiment", default="returnn", help="will look in data/exp-<experiment> for scores/models")

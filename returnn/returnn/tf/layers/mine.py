@@ -349,13 +349,19 @@ class GatedRecurrentContextLayer(LayerBase):
     if first_reset_value is not None:
       reset = substitute(reset, time_pads=[1,0], value=first_reset_value) 
     #
-    if ((network.train_flag is None or network.train_flag is False) and infer_threshold is not None):
+    if ((network.train_flag is None or network.train_flag is False) and infer_threshold is not None \
+        and (exp_energy_cumsum)):
       print("----------------------------------------------------------")
       print("--------------------INFER_simple_thresholding-------------")
       print("----------------------------------------------------------")
-      low_threshold_point = get_endpoint_compare_to(reset, infer_threshold, "l", "first")
-      before_low_threshold = tf.cumsum(low_threshold_point, axis=0, reverse=True) 
-      reset = before_low_threshold*reset 
+      reset = tf.where(
+        tf.math.greater(reset, infer_threshold),
+        x=reset,
+        y=tf.zeros_like(reset),
+      )
+      # low_threshold_point = get_endpoint_compare_to(reset, infer_threshold, "l", "first")
+      # before_low_threshold = tf.cumsum(low_threshold_point, axis=0, reverse=True) 
+      # reset = before_low_threshold*reset 
     # safe_cumprod computes cumprod in logspace with numeric checks
     cumprod_1mreset = safe_cumprod(1 - reset, axis=axis, exclusive=True, reverse=True) #(enc-T,B,H) #(45,1,132)
     # Compute recurrence relation solution
